@@ -8,4 +8,4 @@ Le projet offre une interface responsive, intuitive et agréable, permettant aux
 
 Cette réalisation a été développée dans le but de pratiquer la création d’interfaces web modernes, l’intégration d’un design attractif ainsi que l’optimisation de l’expérience utilisateur sur tous les appareils.
 
-![Aperçu du projet](facture.png)
+![Aperçu du projet](Facture.png)
