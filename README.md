@@ -1,11 +1,11 @@
-# Marché Facile
+# FacturePLUS
 
 
-Marché Facile est une application web moderne conçue pour aider les utilisateurs à mieux choisir leurs produits alimentaires au supermarché et au marché.  
-L’application met en avant les fruits et légumes de saison, les fromages, viandes et poissons de qualité, tout en proposant des conseils pratiques pour consommer plus frais et plus local.
+FacturePLUS est une interface web moderne dédiée à la gestion et à la présentation de factures numériques.  
+Le projet met en avant une expérience utilisateur fluide, un design responsive et une organisation claire des informations financières.
 
-Le projet offre une interface responsive, intuitive et agréable, permettant aux utilisateurs de rechercher rapidement des produits, consulter des guides saisonniers et découvrir des recommandations utiles pour une alimentation plus saine et responsable.
+L’application permet de visualiser des factures professionnelles avec une présentation moderne et intuitive, adaptée aussi bien aux entreprises qu’aux indépendants.
 
-Cette réalisation a été développée dans le but de pratiquer la création d’interfaces web modernes, l’intégration d’un design attractif ainsi que l’optimisation de l’expérience utilisateur sur tous les appareils.
+Cette réalisation a été développée dans le but de pratiquer la création d’interfaces web modernes, l’intégration d’éléments visuels professionnels ainsi que l’optimisation de l’affichage sur différents appareils.
 
 ![Aperçu du projet](Facture.png)
