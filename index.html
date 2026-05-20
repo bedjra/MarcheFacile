@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marché Facile — Bien manger, simplement</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Instrument+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ═══ TOKENS ═══ */
+
+ @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+.ab-footer {
+  background: #0a0a0f;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.07);
+  padding: 36px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.ab-footer__logo {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.ab-footer__logo-ab {
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ab-footer__logo-dev {
+  color: #f1f5f9;
+}
+
+.ab-footer__sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #334155;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.ab-footer__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #06b6d4;
+  text-decoration: none;
+  border: 0.5px solid rgba(6, 182, 212, 0.25);
+  background: rgba(6, 182, 212, 0.06);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.ab-footer__whatsapp:hover {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.45);
+}
+
+.ab-footer__copy {
+  font-size: 11px;
+  color: #334155;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+
+:root{
+  --bg:#F7F4EE;
+  --bg2:#EEE9DF;
+  --bg3:#E5DFD3;
+  --ink:#1A1A14;
+  --ink2:#3D3C30;
+  --ink3:#6B6A58;
+  --leaf:#2D6A3F;
+  --leaf2:#3D8C55;
+  --leaf-pale:#E8F3EC;
+  --sun:#D4880A;
+  --sun2:#F0A020;
+  --sun-pale:#FDF4E3;
+  --tomato:#C03820;
+  --tomato-pale:#FAECE9;
+  --sky:#2A6B8A;
+  --sky-pale:#E6F1F7;
+  --border:rgba(26,26,20,0.1);
+  --shadow:0 4px 24px rgba(26,26,20,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Instrument Sans',sans-serif;
+  background:var(--bg);color:var(--ink);
+  min-height:100vh;overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;}
+
+/* ═══ PAGE SYSTEM ═══ */
+.page{display:none;animation:fadeIn .4s ease;}
+.page.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+/* ═══ HEADER ═══ */
+header{
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:100;
+}
+.hd{
+  max-width:1200px;margin:0 auto;
+  padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:66px;
+}
+.logo{
+  font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;
+  color:var(--leaf);cursor:pointer;
+  display:flex;align-items:center;gap:8px;
+  text-decoration:none;
+  transition:.2s;
+}
+.logo:hover{opacity:.8;}
+.logo-icon{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--leaf);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+nav{display:flex;gap:.25rem;}
+.nav-btn{
+  background:transparent;border:none;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:.85rem;font-weight:500;
+  color:var(--ink3);padding:8px 16px;
+  border-radius:50px;cursor:pointer;
+  transition:.2s;
+}
+.nav-btn:hover{color:var(--ink);background:var(--bg2);}
+.nav-btn.on{color:var(--leaf);background:var(--leaf-pale);font-weight:600;}
+.dl-btn{
+  background:var(--leaf);color:#fff;border:none;
+  font-family:'Instrument Sans',sans-serif;
+  font-size:.83rem;font-weight:600;
+  padding:9px 20px;border-radius:50px;
+  cursor:pointer;transition:.2s;white-space:nowrap;
+}
+.dl-btn:hover{background:var(--leaf2);transform:translateY(-1px);}
+
+/* ═══ UTIL ═══ */
+.sec{padding:5rem 2rem;}
+.sec-alt{background:var(--bg2);}
+.sec-dark{background:var(--ink);}
+.wrap{max-width:1200px;margin:0 auto;}
+.label{
+  font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--leaf);display:flex;align-items:center;gap:8px;margin-bottom:.75rem;
+}
+.label::after{content:'';flex:1;height:1px;background:currentColor;opacity:.3;}
+.sec-h{font-size:clamp(2rem,4vw,3rem);font-weight:900;line-height:1.08;margin-bottom:.75rem;}
+.sec-p{color:var(--ink3);font-size:.95rem;line-height:1.8;max-width:580px;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;gap:2rem;flex-wrap:wrap;}
+.link-more{
+  font-size:.82rem;font-weight:600;color:var(--leaf);
+  text-decoration:none;border-bottom:1px solid transparent;
+  transition:.2s;cursor:pointer;background:none;border-top:none;border-left:none;border-right:none;
+  font-family:'Instrument Sans',sans-serif;
+}
+.link-more:hover{border-bottom-color:var(--leaf);}
+.btn{
+  display:inline-block;padding:13px 28px;border-radius:50px;
+  font-size:.9rem;font-weight:600;cursor:pointer;
+  font-family:'Instrument Sans',sans-serif;transition:.2s;border:none;
+  text-decoration:none;
+}
+.btn-green{background:var(--leaf);color:#fff;}
+.btn-green:hover{background:var(--leaf2);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--leaf);border:2px solid var(--leaf);}
+.btn-outline:hover{background:var(--leaf-pale);}
+.btn-white{background:#fff;color:var(--ink);}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.1);}
+
+/* ═══════════════════════════
+   PAGE 1 — ACCUEIL
+═══════════════════════════ */
+
+/* HERO */
+.hero{
+  background:var(--ink);
+  padding:7rem 2rem 6rem;
+  position:relative;overflow:hidden;
+}
+.hero-blob{
+  position:absolute;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(45,106,63,.25) 0%,transparent 70%);
+  top:-200px;right:-100px;pointer-events:none;
+}
+.hero-blob2{
+  position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(212,136,10,.15) 0%,transparent 70%);
+  bottom:-100px;left:10%;pointer-events:none;
+}
+.hero-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:3rem;}}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(45,106,63,.15);border:1px solid rgba(45,106,63,.3);
+  color:#6BCF8A;font-size:.68rem;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;padding:5px 13px;border-radius:4px;margin-bottom:1.5rem;
+}
+.hero h1{
+  font-size:clamp(2.8rem,5.5vw,4.5rem);
+  color:#fff;line-height:1.0;font-weight:900;margin-bottom:1.25rem;
+}
+.hero h1 em{color:#6BCF8A;font-style:italic;}
+.hero-desc{color:rgba(255,255,255,.45);line-height:1.85;font-size:.95rem;margin-bottom:2.5rem;max-width:480px;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.hero-stores{display:flex;gap:1rem;flex-wrap:wrap;}
+.store-badge{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  border-radius:12px;padding:.7rem 1.1rem;cursor:pointer;transition:.2s;
+}
+.store-badge:hover{background:rgba(255,255,255,.12);}
+.store-icon{font-size:1.4rem;}
+.store-line1{font-size:.6rem;color:rgba(255,255,255,.4);letter-spacing:.5px;text-transform:uppercase;}
+.store-line2{font-size:.88rem;font-weight:600;color:#fff;}
+
+/* PHONE MOCKUP */
+.phone-wrap{
+  display:flex;justify-content:center;align-items:center;
+  position:relative;
+}
+.phone{
+  width:240px;height:480px;
+  background:linear-gradient(160deg,#1F2E22 0%,#0D150F 100%);
+  border-radius:36px;
+  border:8px solid rgba(255,255,255,.1);
+  padding:1.5rem 1rem;
+  box-shadow:0 40px 80px rgba(0,0,0,.4),0 0 0 1px rgba(255,255,255,.05);
+  display:flex;flex-direction:column;gap:.75rem;
+  position:relative;overflow:hidden;
+  animation:phoneFloat 4s ease-in-out infinite;
+}
+@keyframes phoneFloat{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-12px) rotate(-1deg);}}
+.phone-notch{
+  width:80px;height:20px;
+  background:rgba(0,0,0,.6);border-radius:0 0 12px 12px;
+  margin:0 auto -4px;
+}
+.phone-header{font-size:.7rem;color:rgba(255,255,255,.5);text-align:center;padding:.3rem;}
+.phone-search{
+  background:rgba(255,255,255,.08);border-radius:10px;
+  padding:.5rem .75rem;display:flex;align-items:center;gap:6px;
+}
+.phone-search span{font-size:.7rem;color:rgba(255,255,255,.35);}
+.phone-card{
+  background:rgba(255,255,255,.06);border-radius:12px;
+  padding:.75rem;display:flex;align-items:center;gap:10px;
+  border:1px solid rgba(255,255,255,.07);
+}
+.pcard-emoji{font-size:1.3rem;background:rgba(255,255,255,.07);width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pcard-name{font-size:.7rem;font-weight:600;color:rgba(255,255,255,.8);}
+.pcard-info{font-size:.6rem;color:rgba(255,255,255,.35);margin-top:1px;}
+.pcard-badge{
+  margin-left:auto;font-size:.55rem;font-weight:700;
+  padding:2px 7px;border-radius:4px;
+}
+.pb-saison{background:rgba(45,106,63,.3);color:#6BCF8A;}
+.pb-dispo{background:rgba(212,136,10,.2);color:#F0B830;}
+.phone-section-title{font-size:.6rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.25);padding:0 .25rem;}
+.phone-glow{
+  position:absolute;bottom:-40px;left:50%;transform:translateX(-50%);
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(107,207,138,.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+
+/* HERO FLOAT BADGES */
+.phone-float{position:absolute;}
+.pf1{top:20px;right:-30px;}
+.pf2{bottom:60px;left:-40px;}
+.float-card{
+  background:#fff;border-radius:14px;
+  padding:.75rem 1rem;box-shadow:0 8px 32px rgba(0,0,0,.15);
+  min-width:150px;
+  animation:floatCard 3.5s ease-in-out infinite;
+}
+.pf2 .float-card{animation-delay:1.8s;}
+.float-card-title{font-size:.72rem;font-weight:600;color:var(--ink);}
+.float-card-sub{font-size:.62rem;color:var(--ink3);margin-top:2px;}
+.float-card-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--leaf);display:inline-block;margin-right:5px;
+  animation:pulse 2s infinite;
+}
+@keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* FEATURES */
+.feats-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+@media(max-width:720px){.feats-grid{grid-template-columns:1fr;}}
+.feat-card{
+  background:#fff;border-radius:20px;padding:2rem;
+  border:1px solid var(--border);
+  transition:.25s;position:relative;overflow:hidden;
+}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(26,26,20,.1);}
+.feat-card::before{
+  content:'';position:absolute;top:-30px;right:-30px;
+  width:100px;height:100px;border-radius:50%;opacity:.06;
+}
+.feat-card.c1::before{background:var(--leaf);}
+.feat-card.c2::before{background:var(--sun);}
+.feat-card.c3::before{background:var(--sky);}
+.feat-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.25rem;
+}
+.fi-green{background:var(--leaf-pale);}
+.fi-sun{background:var(--sun-pale);}
+.fi-sky{background:var(--sky-pale);}
+.feat-title{font-size:1.1rem;font-weight:700;margin-bottom:.5rem;}
+.feat-desc{font-size:.83rem;color:var(--ink3);line-height:1.7;}
+
+/* HOW IT WORKS */
+.how-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+}
+@media(max-width:860px){.how-grid{grid-template-columns:1fr;gap:3rem;}}
+.steps{display:flex;flex-direction:column;gap:2rem;}
+.step{display:flex;gap:1.5rem;align-items:flex-start;}
+.step-num{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--leaf);color:#fff;
+  font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step-title{font-size:1rem;font-weight:600;margin-bottom:.3rem;}
+.step-desc{font-size:.83rem;color:var(--ink3);line-height:1.7;}
+.how-visual{
+  background:linear-gradient(135deg,var(--leaf-pale) 0%,var(--sun-pale) 100%);
+  border-radius:28px;padding:3rem;
+  display:flex;flex-direction:column;gap:1rem;
+  border:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.how-visual::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:rgba(45,106,63,.07);
+}
+.how-big-emoji{font-size:5rem;text-align:center;display:block;margin-bottom:.5rem;animation:bounceEmoji 2s ease-in-out infinite;}
+@keyframes bounceEmoji{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.how-stat{
+  background:#fff;border-radius:14px;padding:1rem 1.25rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border:1px solid var(--border);
+}
+.how-stat-label{font-size:.78rem;color:var(--ink3);}
+.how-stat-val{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--leaf);}
+
+/* TESTIMONIALS */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+@media(max-width:720px){.test-grid{grid-template-columns:1fr;}}
+.tcard{background:#fff;border-radius:20px;padding:1.75rem;border:1px solid var(--border);}
+.tcard-stars{color:var(--sun2);font-size:.9rem;margin-bottom:.75rem;letter-spacing:2px;}
+.tcard-text{font-size:.87rem;color:var(--ink2);line-height:1.75;margin-bottom:1.25rem;font-style:italic;}
+.tcard-author{display:flex;align-items:center;gap:.75rem;}
+.tcard-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--leaf-pale);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;
+}
+.tcard-name{font-size:.83rem;font-weight:600;color:var(--ink);}
+.tcard-city{font-size:.72rem;color:var(--ink3);}
+
+/* CTA BAND */
+.cta-band{
+  background:var(--leaf);
+  padding:4rem 2rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-band::before{
+  content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:600px;height:300px;border-radius:50%;
+  background:rgba(255,255,255,.05);pointer-events:none;
+}
+.cta-band h2{font-size:clamp(1.8rem,4vw,2.8rem);color:#fff;font-weight:900;margin-bottom:.75rem;}
+.cta-band p{color:rgba(255,255,255,.65);font-size:.95rem;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;}
+
+/* ═══════════════════════════
+   PAGE 2 — SAISONS
+═══════════════════════════ */
+.season-tabs{
+  display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem;
+}
+.stab{
+  padding:10px 22px;border-radius:50px;
+  font-size:.85rem;font-weight:500;
+  border:1px solid var(--border);
+  background:transparent;color:var(--ink3);
+  cursor:pointer;transition:.2s;
+  font-family:'Instrument Sans',sans-serif;
+}
+.stab:hover{border-color:var(--leaf);color:var(--leaf);}
+.stab.on{background:var(--leaf);color:#fff;border-color:var(--leaf);}
+.season-panel{display:none;}
+.season-panel.on{display:block;}
+
+.season-hero{
+  border-radius:24px;padding:3rem;margin-bottom:3rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+}
+@media(max-width:760px){.season-hero{grid-template-columns:1fr;}}
+.sh-spring{background:linear-gradient(135deg,#E8F7ED 0%,#F5FBF0 100%);border:1px solid rgba(45,106,63,.15);}
+.sh-summer{background:linear-gradient(135deg,#FEF5E4 0%,#FFF8EE 100%);border:1px solid rgba(212,136,10,.2);}
+.sh-autumn{background:linear-gradient(135deg,#FAECE9 0%,#FDF5F0 100%);border:1px solid rgba(192,56,32,.2);}
+.sh-winter{background:linear-gradient(135deg,#E6F1F7 0%,#EEF5FA 100%);border:1px solid rgba(42,107,138,.2);}
+.sh-season-tag{
+  display:inline-block;
+  font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  padding:5px 13px;border-radius:4px;margin-bottom:1rem;
+}
+.tag-spring{background:var(--leaf-pale);color:var(--leaf);}
+.tag-summer{background:var(--sun-pale);color:var(--sun);}
+.tag-autumn{background:var(--tomato-pale);color:var(--tomato);}
+.tag-winter{background:var(--sky-pale);color:var(--sky);}
+.sh-title{font-size:2.2rem;font-weight:900;margin-bottom:.75rem;line-height:1.1;}
+.sh-desc{font-size:.88rem;color:var(--ink3);line-height:1.8;}
+.sh-big{font-size:8rem;text-align:center;display:block;animation:spin 6s linear infinite;}
+@keyframes spin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+
+.prod-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:1rem;
+}
+.prod-card{
+  background:#fff;border-radius:16px;padding:1.25rem;
+  text-align:center;border:1px solid var(--border);
+  cursor:pointer;transition:.2s;
+}
+.prod-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.prod-emoji{font-size:2.5rem;display:block;margin-bottom:.5rem;}
+.prod-name{font-size:.88rem;font-weight:600;color:var(--ink);}
+.prod-tip{font-size:.72rem;color:var(--ink3);margin-top:.3rem;line-height:1.4;}
+.prod-badge{
+  display:inline-block;font-size:.6rem;font-weight:700;
+  padding:2px 8px;border-radius:3px;margin-top:.5rem;
+}
+.pb-optimal{background:var(--leaf-pale);color:var(--leaf);}
+.pb-dispo{background:var(--sun-pale);color:var(--sun);}
+.pb-fin{background:var(--tomato-pale);color:var(--tomato);}
+
+.seasonal-tips{
+  background:var(--ink);border-radius:24px;padding:2.5rem;
+  margin-top:3rem;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+@media(max-width:720px){.seasonal-tips{grid-template-columns:1fr;}}
+.stip{border-left:3px solid rgba(255,255,255,.1);padding-left:1.25rem;}
+.stip-icon{font-size:1.3rem;margin-bottom:.5rem;}
+.stip-title{font-size:.88rem;font-weight:600;color:rgba(255,255,255,.85);margin-bottom:.3rem;}
+.stip-desc{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6;}
+
+/* ═══════════════════════════
+   PAGE 3 — GUIDE PRODUITS
+═══════════════════════════ */
+.guide-filter-row{
+  display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.5rem;
+}
+.gfilter{
+  padding:8px 18px;border-radius:50px;
+  font-size:.8rem;font-weight:500;
+  border:1px solid var(--border);background:transparent;color:var(--ink3);
+  cursor:pointer;transition:.2s;font-family:'Instrument Sans',sans-serif;
+}
+.gfilter:hover{border-color:var(--leaf);color:var(--leaf);}
+.gfilter.on{background:var(--leaf);color:#fff;border-color:var(--leaf);}
+
+.guide-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.5rem;
+}
+.gcard{
+  background:#fff;border-radius:20px;overflow:hidden;
+  border:1px solid var(--border);transition:.25s;cursor:pointer;
+}
+.gcard:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(26,26,20,.1);}
+.gcard-header{
+  padding:1.75rem;display:flex;align-items:flex-start;gap:1rem;
+  border-bottom:1px solid var(--border);
+}
+.gcard-emoji{
+  font-size:2.5rem;width:64px;height:64px;
+  background:var(--bg2);border-radius:14px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.gcard-title{font-size:1.1rem;font-weight:700;margin-bottom:.2rem;}
+.gcard-latin{font-size:.72rem;color:var(--ink3);font-style:italic;margin-bottom:.5rem;}
+.gcard-tags{display:flex;gap:.3rem;flex-wrap:wrap;}
+.gcard-tag{
+  font-size:.6rem;font-weight:700;letter-spacing:.3px;
+  padding:2px 8px;border-radius:3px;
+}
+.gt-veg{background:var(--leaf-pale);color:var(--leaf);}
+.gt-fruit{background:var(--sun-pale);color:var(--sun);}
+.gt-viande{background:var(--tomato-pale);color:var(--tomato);}
+.gt-poisson{background:var(--sky-pale);color:var(--sky);}
+.gt-fromage{background:#F5EFE0;color:#7A5C20;}
+.gcard-body{padding:1.5rem;}
+.gcard-section{font-size:.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink3);margin-bottom:.4rem;margin-top:.9rem;}
+.gcard-section:first-child{margin-top:0;}
+.gcard-text{font-size:.82rem;color:var(--ink2);line-height:1.7;}
+.gcard-criteria{display:flex;flex-direction:column;gap:.3rem;}
+.criterion{display:flex;align-items:flex-start;gap:.5rem;font-size:.8rem;color:var(--ink2);line-height:1.5;}
+.criterion::before{content:'✓';color:var(--leaf);font-weight:700;flex-shrink:0;margin-top:1px;}
+.gcard-saison-bar{
+  display:flex;gap:.25rem;margin-top:.25rem;
+}
+.month-dot{
+  height:6px;flex:1;border-radius:3px;
+  background:var(--bg3);transition:.2s;
+}
+.month-dot.on{background:var(--leaf);}
+.gcard-footer{
+  padding:1rem 1.5rem;
+  border-top:1px solid var(--border);
+  background:var(--bg);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.gcard-price{font-size:.78rem;color:var(--ink3);}
+.gcard-price strong{color:var(--ink);font-weight:700;}
+.gcard-freshness{font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:4px;}
+.gf-top{background:var(--leaf-pale);color:var(--leaf);}
+.gf-bon{background:var(--sun-pale);color:var(--sun);}
+.gf-hors{background:var(--tomato-pale);color:var(--tomato);}
+
+/* GUIDE HERO */
+.guide-hero{
+  background:linear-gradient(135deg,var(--leaf) 0%,#1D4A2A 100%);
+  border-radius:24px;padding:3rem;margin-bottom:3rem;
+  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
+  position:relative;overflow:hidden;
+}
+.guide-hero::before{
+  content:'';position:absolute;right:-80px;top:-80px;
+  width:300px;height:300px;border-radius:50%;
+  background:rgba(255,255,255,.05);pointer-events:none;
+}
+.guide-hero h2{font-size:2rem;color:#fff;font-weight:900;margin-bottom:.5rem;}
+.guide-hero p{color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.7;max-width:480px;}
+.guide-hero-emojis{font-size:3.5rem;display:flex;gap:.5rem;flex-wrap:wrap;max-width:220px;}
+
+/* ═══════════════════════════
+   PAGE 4 — À PROPOS
+═══════════════════════════ */
+.about-hero{
+  background:var(--ink);padding:7rem 2rem 6rem;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.about-hero::before{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(45,106,63,.2) 0%,transparent 70%);
+  pointer-events:none;
+}
+.about-hero-tag{
+  display:inline-block;
+  background:rgba(45,106,63,.15);border:1px solid rgba(45,106,63,.3);
+  color:#6BCF8A;font-size:.68rem;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;padding:5px 13px;border-radius:4px;margin-bottom:1.5rem;
+}
+.about-hero h1{font-size:clamp(2.5rem,5vw,4rem);color:#fff;font-weight:900;margin-bottom:1rem;line-height:1.1;}
+.about-hero h1 em{color:#6BCF8A;font-style:italic;}
+.about-hero p{color:rgba(255,255,255,.45);font-size:.95rem;line-height:1.8;max-width:580px;margin:0 auto;}
+
+.mission-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+}
+@media(max-width:860px){.mission-grid{grid-template-columns:1fr;gap:3rem;}}
+.mission-text h2{font-size:2.4rem;font-weight:900;margin-bottom:1rem;line-height:1.1;}
+.mission-text h2 em{color:var(--leaf);font-style:italic;}
+.mission-text p{font-size:.9rem;color:var(--ink3);line-height:1.85;margin-bottom:1.25rem;}
+.mission-visual{
+  background:linear-gradient(135deg,var(--leaf-pale),var(--sun-pale));
+  border-radius:24px;padding:2.5rem;
+  border:1px solid var(--border);
+}
+.mv-item{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:.9rem 0;border-bottom:1px solid rgba(26,26,20,.07);
+}
+.mv-item:last-child{border-bottom:none;padding-bottom:0;}
+.mv-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.mv-title{font-size:.88rem;font-weight:600;margin-bottom:.2rem;}
+.mv-desc{font-size:.78rem;color:var(--ink3);line-height:1.5;}
+
+.values-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+@media(max-width:720px){.values-grid{grid-template-columns:1fr;}}
+.vcard{
+  background:#fff;border-radius:20px;padding:2rem;
+  border:1px solid var(--border);text-align:center;
+  transition:.2s;
+}
+.vcard:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.vcard-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.vcard-title{font-size:1.05rem;font-weight:700;margin-bottom:.5rem;}
+.vcard-desc{font-size:.82rem;color:var(--ink3);line-height:1.7;}
+
+.team-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;
+}
+@media(max-width:760px){.team-grid{grid-template-columns:repeat(2,1fr);}}
+.tpcard{
+  background:#fff;border-radius:20px;padding:1.5rem;
+  text-align:center;border:1px solid var(--border);
+  transition:.2s;
+}
+.tpcard:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.tpcard-avatar{
+  width:72px;height:72px;border-radius:50%;margin:0 auto .9rem;
+  background:linear-gradient(135deg,var(--leaf-pale),var(--sun-pale));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;
+}
+.tpcard-name{font-size:.95rem;font-weight:700;margin-bottom:.2rem;}
+.tpcard-role{font-size:.75rem;color:var(--ink3);}
+
+.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:760px;margin:0 auto;}
+.faq-item{background:#fff;border-radius:14px;border:1px solid var(--border);overflow:hidden;}
+.faq-q{
+  padding:1.1rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;
+  font-size:.9rem;font-weight:600;color:var(--ink);
+  transition:.2s;
+}
+.faq-q:hover{background:var(--bg);}
+.faq-arrow{transition:transform .3s;color:var(--leaf);font-size:1.1rem;}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .2s;
+  font-size:.85rem;color:var(--ink3);line-height:1.75;
+  padding:0 1.5rem;
+}
+.faq-item.open .faq-a{max-height:200px;padding:0 1.5rem 1.25rem;}
+.faq-item.open .faq-arrow{transform:rotate(45deg);}
+
+.stats-band{
+  background:var(--leaf);padding:4rem 2rem;
+}
+.stats-inner{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center;
+}
+@media(max-width:720px){.stats-inner{grid-template-columns:repeat(2,1fr);}}
+.stat-num{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:#fff;line-height:1;}
+.stat-label{font-size:.75rem;color:rgba(255,255,255,.55);margin-top:.3rem;letter-spacing:.5px;}
+
+/* ═══ FOOTER ═══ */
+footer{
+  background:var(--ink);padding:4rem 2rem 2rem;
+}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem;
+}
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:540px){.footer-grid{grid-template-columns:1fr;}}
+.footer-logo{
+  font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;
+  color:#fff;display:flex;align-items:center;gap:8px;
+  margin-bottom:1rem;
+}
+.footer-logo-icon{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--leaf);display:flex;align-items:center;justify-content:center;
+  font-size:1rem;
+}
+.footer-desc{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.8;max-width:260px;}
+.footer-col-title{font-size:.68rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:1rem;}
+.footer-links{display:flex;flex-direction:column;gap:.6rem;}
+.footer-links a{font-size:.82rem;color:rgba(255,255,255,.4);text-decoration:none;transition:.2s;cursor:pointer;}
+.footer-links a:hover{color:rgba(255,255,255,.8);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.07);padding-top:1.5rem;
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.2);}
+.footer-stores{display:flex;gap:.75rem;}
+.fstore{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:8px;padding:6px 14px;
+  font-size:.75rem;color:rgba(255,255,255,.5);cursor:pointer;transition:.2s;
+}
+.fstore:hover{color:rgba(255,255,255,.8);}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header>
+  <div class="hd">
+    <div class="logo" onclick="goTo('home')">
+      <div class="logo-icon">🛒</div>
+      Marché Facile
+    </div>
+    <nav>
+      <button class="nav-btn on" id="nb-home" onclick="goTo('home')">Accueil</button>
+      <button class="nav-btn" id="nb-saisons" onclick="goTo('saisons')">Saisons</button>
+      <button class="nav-btn" id="nb-guide" onclick="goTo('guide')">Guide Produits</button>
+      <button class="nav-btn" id="nb-about" onclick="goTo('about')">À propos</button>
+    </nav>
+    <button class="dl-btn">📱 Télécharger</button>
+  </div>
+</header>
+
+<!-- ════════════════════════════════
+     PAGE 1 — ACCUEIL
+════════════════════════════════ -->
+<div class="page active" id="pg-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-blob"></div>
+    <div class="hero-blob2"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-tag">🌿 Application mobile gratuite</div>
+        <h1>Bien manger,<br>c'est <em>facile</em><br>au marché.</h1>
+        <p class="hero-desc">Marché Facile vous guide dans les rayons : fruits et légumes de saison, fromages au meilleur de leur forme, viandes et poissons frais. Plus jamais de mauvais choix.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-green" onclick="goTo('guide')">Découvrir le guide →</button>
+          <button class="btn btn-outline" style="background:transparent;color:#6BCF8A;border-color:rgba(107,207,138,.4);" onclick="goTo('saisons')">Voir les saisons</button>
+        </div>
+        <div class="hero-stores">
+          <div class="store-badge">
+            <div class="store-icon">🍎</div>
+            <div>
+              <div class="store-line1">Disponible sur</div>
+              <div class="store-line2">App Store</div>
+            </div>
+          </div>
+          <div class="store-badge">
+            <div class="store-icon">▶</div>
+            <div>
+              <div class="store-line1">Disponible sur</div>
+              <div class="store-line2">Google Play</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-header">Marché Facile</div>
+          <div class="phone-search">
+            <span>🔍 Rechercher un produit…</span>
+          </div>
+          <div class="phone-section-title">En ce moment</div>
+          <div class="phone-card">
+            <div class="pcard-emoji">🍓</div>
+            <div>
+              <div class="pcard-name">Fraises Gariguette</div>
+              <div class="pcard-info">Fruits rouges · Printemps</div>
+            </div>
+            <div class="pcard-badge pb-saison">⭐ Saison</div>
+          </div>
+          <div class="phone-card">
+            <div class="pcard-emoji">🥦</div>
+            <div>
+              <div class="pcard-name">Brocoli</div>
+              <div class="pcard-info">Légumes verts · Printemps</div>
+            </div>
+            <div class="pcard-badge pb-saison">⭐ Saison</div>
+          </div>
+          <div class="phone-card">
+            <div class="pcard-emoji">🧀</div>
+            <div>
+              <div class="pcard-name">Comté 18 mois</div>
+              <div class="pcard-info">Fromage · Toute l'année</div>
+            </div>
+            <div class="pcard-badge pb-dispo">Excellent</div>
+          </div>
+          <div class="phone-card">
+            <div class="pcard-emoji">🐟</div>
+            <div>
+              <div class="pcard-name">Sardine fraîche</div>
+              <div class="pcard-info">Poisson · Mai–Sept</div>
+            </div>
+            <div class="pcard-badge pb-saison">⭐ Saison</div>
+          </div>
+          <div class="phone-glow"></div>
+        </div>
+        <div class="phone-float pf1">
+          <div class="float-card">
+            <div class="float-card-title"><span class="float-card-dot"></span>Mise à jour hebdo</div>
+            <div class="float-card-sub">Produits de la semaine</div>
+          </div>
+        </div>
+        <div class="phone-float pf2">
+          <div class="float-card">
+            <div class="float-card-title">🌍 Produits locaux</div>
+            <div class="float-card-sub">Priorité au terroir</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label">Ce qu'on vous offre</div>
+          <h2 class="sec-h">Tout ce dont vous avez<br>besoin au supermarché</h2>
+        </div>
+        <p class="sec-p">Une application simple, claire et fiable. Pas de publicité, pas d'abonnement — juste de bons conseils pour mieux manger.</p>
+      </div>
+      <div class="feats-grid">
+        <div class="feat-card c1">
+          <div class="feat-icon fi-green">🥕</div>
+          <div class="feat-title">Fruits & Légumes de Saison</div>
+          <p class="feat-desc">Sachez exactement quels fruits et légumes sont au meilleur de leur goût ce mois-ci. Évitez les produits importés insipides et économisez en achetant local et de saison.</p>
+        </div>
+        <div class="feat-card c2">
+          <div class="feat-icon fi-sun">🧀</div>
+          <div class="feat-title">Fromages, Viandes & Poissons</div>
+          <p class="feat-desc">Guide complet pour choisir un bon fromage (croûte, odeur, texture), reconnaître une viande fraîche et identifier un poisson de qualité. Des critères concrets, pas du jargon.</p>
+        </div>
+        <div class="feat-card c3">
+          <div class="feat-icon fi-sky">📅</div>
+          <div class="feat-title">Calendrier Saisonnier</div>
+          <p class="feat-desc">Un calendrier mois par mois pour anticiper les arrivées de produits. Préparez vos menus à l'avance et ne manquez plus jamais les premières fraises, les asperges ou les truffes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div class="how-grid">
+        <div>
+          <div class="label">Comment ça marche</div>
+          <h2 class="sec-h">Simple comme<br><em style="font-style:italic;color:var(--leaf);">bonjour</em></h2>
+          <p class="sec-p" style="margin-bottom:2.5rem;">Marché Facile est pensé pour être utilisé directement dans le rayon, le téléphone d'une main et le légume de l'autre.</p>
+          <div class="steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <div class="step-title">Ouvrez l'application</div>
+                <p class="step-desc">L'écran principal affiche immédiatement les produits du moment, selon la saison en cours. Pas besoin de naviguer — c'est là, directement.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <div class="step-title">Recherchez ou parcourez</div>
+                <p class="step-desc">Tapez le nom d'un produit ou parcourez les catégories : légumes, fruits, fromages, viandes, poissons. Chaque produit a sa fiche complète.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <div class="step-title">Lisez les conseils</div>
+                <p class="step-desc">Critères de fraîcheur, comment le choisir, comment le conserver, recettes rapides associées. Tout ce qu'il faut en quelques secondes.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <div class="step-title">Mangez mieux, sans effort</div>
+                <p class="step-desc">Résultat : des produits plus goûteux, moins de gaspillage, et une alimentation réellement de saison. Simple, non ?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="how-visual">
+          <span class="how-big-emoji">🛒</span>
+          <div class="how-stat">
+            <span class="how-stat-label">Produits référencés</span>
+            <span class="how-stat-val">420+</span>
+          </div>
+          <div class="how-stat">
+            <span class="how-stat-label">Mise à jour</span>
+            <span class="how-stat-val">Chaque semaine</span>
+          </div>
+          <div class="how-stat">
+            <span class="how-stat-label">Téléchargements</span>
+            <span class="how-stat-val">85 000+</span>
+          </div>
+          <div class="how-stat">
+            <span class="how-stat-label">Note utilisateurs</span>
+            <span class="how-stat-val">4.8 ⭐</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label">Ils nous font confiance</div>
+          <h2 class="sec-h">Ce qu'en disent<br>nos utilisateurs</h2>
+        </div>
+      </div>
+      <div class="test-grid">
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">« Je ne pouvais plus faire mes courses sans cette appli. Avant j'achetais des tomates en janvier sans réfléchir. Maintenant je sais exactement ce qui vaut le coup chaque mois. »</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">👩</div>
+            <div>
+              <div class="tcard-name">Sophie M.</div>
+              <div class="tcard-city">Lyon · Utilisatrice depuis 2 ans</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">« La section fromage est incroyable. J'ai enfin appris à choisir un bon camembert et à comprendre pourquoi certains me semblaient moins bons. Je recommande à tous. »</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">👨</div>
+            <div>
+              <div class="tcard-name">Thomas L.</div>
+              <div class="tcard-city">Paris · Utilisateur depuis 1 an</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★☆</div>
+          <p class="tcard-text">« Simple, claire, sans chichi. Pas de pubs, pas d'abonnement. Juste de l'info utile. J'aurais aimé cette application quand j'ai commencé à cuisiner il y a dix ans. »</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">👩‍🦳</div>
+            <div>
+              <div class="tcard-name">Michèle B.</div>
+              <div class="tcard-city">Bordeaux · Utilisatrice depuis 8 mois</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="wrap" style="text-align:center;">
+      <h2>Prêt à mieux manger ?</h2>
+      <p>Rejoignez 85 000 personnes qui font leurs courses plus intelligemment. Téléchargement gratuit, aucun abonnement.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-white">🍎 App Store — Gratuit</button>
+        <button class="btn btn-white">▶ Google Play — Gratuit</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 2 — SAISONS
+════════════════════════════════ -->
+<div class="page" id="pg-saisons">
+  <section class="sec">
+    <div class="wrap">
+      <div class="label">Calendrier saisonnier</div>
+      <h2 class="sec-h" style="margin-bottom:.5rem;">Que manger ce mois-ci ?</h2>
+      <p class="sec-p" style="margin-bottom:2.5rem;">Les produits de saison sont plus savoureux, moins chers et meilleurs pour la planète. Explorez chaque saison pour faire les meilleurs choix.</p>
+      <div class="season-tabs">
+        <button class="stab on" onclick="setSeason('spring')">🌸 Printemps</button>
+        <button class="stab" onclick="setSeason('summer')">☀️ Été</button>
+        <button class="stab" onclick="setSeason('autumn')">🍂 Automne</button>
+        <button class="stab" onclick="setSeason('winter')">❄️ Hiver</button>
+      </div>
+
+      <!-- SPRING -->
+      <div class="season-panel on" id="sp-spring">
+        <div class="season-hero sh-spring">
+          <div>
+            <div class="sh-season-tag tag-spring">🌸 Printemps — Mars à Mai</div>
+            <div class="sh-title">Le renouveau des saveurs</div>
+            <p class="sh-desc">Le printemps signe le retour des premières fraises, des asperges tendres, des petits pois croquants et des herbes aromatiques fraîches. C'est la saison de la légèreté et de la couleur dans l'assiette.</p>
+          </div>
+          <span class="sh-big">🌸</span>
+        </div>
+        <div class="label">Légumes de printemps</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🥦</span><div class="prod-name">Brocoli</div><div class="prod-tip">Choisir vert intense, pas jaunissant</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🌿</span><div class="prod-name">Asperge blanche</div><div class="prod-tip">Bout humide, pointe fermée</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥬</span><div class="prod-name">Épinards</div><div class="prod-tip">Feuilles luisantes et bien vertes</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🫛</span><div class="prod-name">Petits pois</div><div class="prod-tip">Cosses bien rebondies et vertes</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🌱</span><div class="prod-name">Radis</div><div class="prod-tip">Fermes, feuilles fraîches</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🧅</span><div class="prod-name">Oignons nouveaux</div><div class="prod-tip">Tiges vertes bien dressées</div><span class="prod-badge pb-dispo">Dispo</span></div>
+        </div>
+        <div class="label">Fruits de printemps</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🍓</span><div class="prod-name">Fraises</div><div class="prod-tip">Rouges jusqu'au calice, parfumées</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍒</span><div class="prod-name">Cerises</div><div class="prod-tip">Queue verte, peau brillante</div><span class="prod-badge pb-dispo">Fin de saison</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍈</span><div class="prod-name">Rhubarbe</div><div class="prod-tip">Tiges fermes, rouge rosé vif</div><span class="prod-badge pb-optimal">Optimal</span></div>
+        </div>
+        <div class="seasonal-tips">
+          <div class="stip"><div class="stip-icon">💡</div><div class="stip-title">Conservation asperges</div><div class="stip-desc">Enveloppez-les dans un torchon humide au réfrigérateur, bout dans l'eau comme un bouquet. À consommer sous 3 jours.</div></div>
+          <div class="stip"><div class="stip-icon">🔪</div><div class="stip-title">Préparer les fraises</div><div class="stip-desc">Lavez-les AVANT d'enlever le calice, jamais après — elles s'imbibiraient d'eau et perdraient leur goût.</div></div>
+          <div class="stip"><div class="stip-icon">🌡️</div><div class="stip-title">Petits pois</div><div class="stip-desc">À écosser au dernier moment. Cuits à l'anglaise 3 min dans l'eau bouillante salée, ils gardent leur couleur et leur croquant.</div></div>
+        </div>
+      </div>
+
+      <!-- SUMMER -->
+      <div class="season-panel" id="sp-summer">
+        <div class="season-hero sh-summer">
+          <div>
+            <div class="sh-season-tag tag-summer">☀️ Été — Juin à Août</div>
+            <div class="sh-title">L'abondance du soleil</div>
+            <p class="sh-desc">Tomates gorgées de soleil, courgettes, poivrons colorés, melons parfumés et pêches sucrées. L'été est la saison la plus généreuse — profitez-en pour cuisiner simple et savoureusement.</p>
+          </div>
+          <span class="sh-big">☀️</span>
+        </div>
+        <div class="label">Légumes d'été</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🍅</span><div class="prod-name">Tomate</div><div class="prod-tip">Ferme mais souple sous le doigt, parfumée</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥒</span><div class="prod-name">Courgette</div><div class="prod-tip">Petite et brillante = meilleure saveur</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🫑</span><div class="prod-name">Poivron</div><div class="prod-tip">Peau lisse et brillante, lourde</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🌽</span><div class="prod-name">Maïs</div><div class="prod-tip">Feuilles vertes, grains bien serrés</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍆</span><div class="prod-name">Aubergine</div><div class="prod-tip">Peau brillante, pédoncule vert</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥬</span><div class="prod-name">Haricots verts</div><div class="prod-tip">Cassure nette et propre</div><span class="prod-badge pb-optimal">Optimal</span></div>
+        </div>
+        <div class="label">Fruits d'été</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🍑</span><div class="prod-name">Pêche</div><div class="prod-tip">Légèrement souple au toucher</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍉</span><div class="prod-name">Pastèque</div><div class="prod-tip">Son creux et tâche jaune = mûre</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍈</span><div class="prod-name">Melon</div><div class="prod-tip">Parfum fort, bout souple</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🫐</span><div class="prod-name">Myrtilles</div><div class="prod-tip">Bleu profond, pas de rouge</div><span class="prod-badge pb-optimal">Optimal</span></div>
+        </div>
+        <div class="seasonal-tips">
+          <div class="stip"><div class="stip-icon">🍅</div><div class="stip-title">Tomates hors du frigo</div><div class="stip-desc">Jamais au réfrigérateur ! Le froid détruit les arômes. Conservez-les à l'ombre à température ambiante, à la queue en l'air.</div></div>
+          <div class="stip"><div class="stip-icon">🍈</div><div class="stip-title">Choisir un melon</div><div class="stip-desc">Sentez-le à l'opposé du pédoncule. S'il ne sent rien, il ne goûtera rien. Un creux souple = maturité parfaite.</div></div>
+          <div class="stip"><div class="stip-icon">🫑</div><div class="stip-title">Poivrons à peler</div><div class="stip-desc">Faites-les griller au four ou directement sur la flamme jusqu'à noircir, puis enfermez dans un sac plastique 10 min. La peau part toute seule.</div></div>
+        </div>
+      </div>
+
+      <!-- AUTUMN -->
+      <div class="season-panel" id="sp-autumn">
+        <div class="season-hero sh-autumn">
+          <div>
+            <div class="sh-season-tag tag-autumn">🍂 Automne — Septembre à Novembre</div>
+            <div class="sh-title">Les saveurs de la terre</div>
+            <p class="sh-desc">Champignons, courges, pommes et poires — l'automne rime avec produits réconfortants et riches en saveurs. C'est aussi la saison des noix, des châtaignes et du raisin.</p>
+          </div>
+          <span class="sh-big">🍂</span>
+        </div>
+        <div class="label">Légumes d'automne</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🎃</span><div class="prod-name">Potiron</div><div class="prod-tip">Peau dure, pas de taches molles</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍄</span><div class="prod-name">Champignons</div><div class="prod-tip">Chapeaux fermés, pas visqueux</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🌰</span><div class="prod-name">Châtaigne</div><div class="prod-tip">Lourde, brillante, sans trous</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥕</span><div class="prod-name">Carotte</div><div class="prod-tip">Ferme, peau lisse, bien orange</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥔</span><div class="prod-name">Pomme de terre</div><div class="prod-tip">Peau ferme, pas verte</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🧄</span><div class="prod-name">Ail</div><div class="prod-tip">Bulbe ferme, peau sèche</div><span class="prod-badge pb-dispo">Dispo</span></div>
+        </div>
+        <div class="label">Fruits d'automne</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🍎</span><div class="prod-name">Pomme</div><div class="prod-tip">Peau brillante, ferme, parfumée</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍐</span><div class="prod-name">Poire</div><div class="prod-tip">Souple près du pédoncule = mûre</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍇</span><div class="prod-name">Raisin</div><div class="prod-tip">Grains fermes, grappe bien garnie</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🌰</span><div class="prod-name">Noix</div><div class="prod-tip">Lourdes, coquille sans fissures</div><span class="prod-badge pb-dispo">Dispo</span></div>
+        </div>
+        <div class="seasonal-tips">
+          <div class="stip"><div class="stip-icon">🍄</div><div class="stip-title">Champignons sauvages</div><div class="stip-desc">Conservez-les dans un sac en papier (jamais plastique) au frigo. Nettoyez avec un pinceau sec, pas sous l'eau — ils s'imbiberaient.</div></div>
+          <div class="stip"><div class="stip-icon">🎃</div><div class="stip-title">Courges entières</div><div class="stip-desc">Une courge entière se conserve 3 mois dans un endroit frais et sec. Une fois coupée, emballez et consommez sous 3–4 jours.</div></div>
+          <div class="stip"><div class="stip-icon">🌰</div><div class="stip-title">Châtaignes</div><div class="stip-desc">Faites tremper 1h dans l'eau pour identifier les vides (elles flottent). Incisez avant cuisson pour éviter qu'elles explosent.</div></div>
+        </div>
+      </div>
+
+      <!-- WINTER -->
+      <div class="season-panel" id="sp-winter">
+        <div class="season-hero sh-winter">
+          <div>
+            <div class="sh-season-tag tag-winter">❄️ Hiver — Décembre à Février</div>
+            <div class="sh-title">La cuisine du réconfort</div>
+            <p class="sh-desc">Poireaux, endives, agrumes et choux — l'hiver est la saison des légumes-racines et des agrumes gorgés de vitamines. C'est aussi le moment idéal pour les fromages affinés et les huîtres.</p>
+          </div>
+          <span class="sh-big">❄️</span>
+        </div>
+        <div class="label">Légumes d'hiver</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🧅</span><div class="prod-name">Poireau</div><div class="prod-tip">Blanc ferme, feuilles bien vertes</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥬</span><div class="prod-name">Chou frisé</div><div class="prod-tip">Feuilles serrées, pas de jaune</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥗</span><div class="prod-name">Endive</div><div class="prod-tip">Blanche, pas verte, compacte</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🌰</span><div class="prod-name">Topinambour</div><div class="prod-tip">Ferme, pas de moisissures</div><span class="prod-badge pb-dispo">Dispo</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥦</span><div class="prod-name">Chou-fleur</div><div class="prod-tip">Bouquets blancs et serrés</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥕</span><div class="prod-name">Panais</div><div class="prod-tip">Peau lisse, couleur crème uniforme</div><span class="prod-badge pb-optimal">Optimal</span></div>
+        </div>
+        <div class="label">Fruits d'hiver</div>
+        <div class="prod-grid" style="margin-bottom:2rem;">
+          <div class="prod-card"><span class="prod-emoji">🍊</span><div class="prod-name">Clémentine</div><div class="prod-tip">Peau adhérente, lourde, parfumée</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍋</span><div class="prod-name">Citron</div><div class="prod-tip">Peau fine et brillante = juteux</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🍊</span><div class="prod-name">Orange</div><div class="prod-tip">Lourde pour sa taille = très juteuse</div><span class="prod-badge pb-optimal">Optimal</span></div>
+          <div class="prod-card"><span class="prod-emoji">🥝</span><div class="prod-name">Kiwi</div><div class="prod-tip">Légèrement souple sous le doigt</div><span class="prod-badge pb-dispo">Dispo</span></div>
+        </div>
+        <div class="seasonal-tips">
+          <div class="stip"><div class="stip-icon">🧅</div><div class="stip-title">Poireau fondant</div><div class="stip-desc">Coupez en rondelles, faites fondre doucement à couvert avec du beurre et une pincée de sel. 20 min à feu très doux pour un résultat crémeux.</div></div>
+          <div class="stip"><div class="stip-icon">🥗</div><div class="stip-title">Endives sans amertume</div><div class="stip-desc">Enlevez le cône à la base (la partie amère). Une noisette de beurre et un peu de sucre lors de la cuisson équilibrent parfaitement l'amertume.</div></div>
+          <div class="stip"><div class="stip-icon">🍊</div><div class="stip-title">Zester les agrumes</div><div class="stip-desc">Préférez les agrumes bio pour le zeste. Lavez bien et frottez avec une râpe fine en évitant la partie blanche, qui est amère.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 3 — GUIDE PRODUITS
+════════════════════════════════ -->
+<div class="page" id="pg-guide">
+  <section class="sec">
+    <div class="wrap">
+      <div class="guide-hero">
+        <div>
+          <div style="font-size:.68rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:.75rem;">Référence complète</div>
+          <h2>Le guide pour bien choisir à chaque rayon</h2>
+          <p>Des critères concrets pour ne plus jamais se tromper. Chaque produit a sa fiche détaillée : comment le reconnaître frais, les signes qui ne trompent pas, et comment le conserver.</p>
+        </div>
+        <div class="guide-hero-emojis">🥕🧀🥩🐟🍅🥦🥐🍋</div>
+      </div>
+
+      <div class="guide-filter-row">
+        <button class="gfilter on" onclick="filterGuide('all',this)">Tous</button>
+        <button class="gfilter" onclick="filterGuide('legume',this)">🥕 Légumes</button>
+        <button class="gfilter" onclick="filterGuide('fruit',this)">🍎 Fruits</button>
+        <button class="gfilter" onclick="filterGuide('fromage',this)">🧀 Fromages</button>
+        <button class="gfilter" onclick="filterGuide('viande',this)">🥩 Viandes</button>
+        <button class="gfilter" onclick="filterGuide('poisson',this)">🐟 Poissons</button>
+      </div>
+
+      <div class="guide-grid" id="guideGrid">
+        <!-- Tomate -->
+        <div class="gcard" data-cat="legume">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🍅</div>
+            <div>
+              <div class="gcard-title">Tomate</div>
+              <div class="gcard-latin">Solanum lycopersicum</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-veg">Légume-fruit</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Ferme mais légèrement souple sous le doigt</div>
+              <div class="criterion">Peau lisse, brillante, sans craquelures</div>
+              <div class="criterion">Couleur uniforme, rouge vif</div>
+              <div class="criterion">Odeur de tomate prononcée au pédoncule</div>
+            </div>
+            <div class="gcard-section">Saison optimale</div>
+            <div class="gcard-saison-bar">
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot"></div>
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot on"></div>
+              <div class="month-dot on"></div><div class="month-dot on"></div><div class="month-dot on"></div>
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot"></div>
+            </div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">À température ambiante, jamais au réfrigérateur. 5–7 jours selon maturité.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>2–4€/kg</strong></div>
+            <span class="gcard-freshness gf-top">Pleine saison</span>
+          </div>
+        </div>
+
+        <!-- Carotte -->
+        <div class="gcard" data-cat="legume">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🥕</div>
+            <div>
+              <div class="gcard-title">Carotte</div>
+              <div class="gcard-latin">Daucus carota</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-veg">Légume-racine</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Ferme et croquante, pas flexible</div>
+              <div class="criterion">Peau lisse, orange vif uniforme</div>
+              <div class="criterion">Fanes (si présentes) bien vertes</div>
+              <div class="criterion">Pas de craquelures ni de parties molles</div>
+            </div>
+            <div class="gcard-section">Saison optimale</div>
+            <div class="gcard-saison-bar">
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot on"></div>
+              <div class="month-dot on"></div><div class="month-dot on"></div><div class="month-dot on"></div>
+              <div class="month-dot on"></div><div class="month-dot on"></div><div class="month-dot on"></div>
+              <div class="month-dot on"></div><div class="month-dot on"></div><div class="month-dot"></div>
+            </div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">Bac à légumes du frigo, 2–3 semaines. Enlevez les fanes qui accélèrent le ramollissement.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>1–2€/kg</strong></div>
+            <span class="gcard-freshness gf-top">Toute l'année</span>
+          </div>
+        </div>
+
+        <!-- Fraise -->
+        <div class="gcard" data-cat="fruit">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🍓</div>
+            <div>
+              <div class="gcard-title">Fraise</div>
+              <div class="gcard-latin">Fragaria × ananassa</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-fruit">Fruit</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Rouge jusqu'au calice, sans partie blanche</div>
+              <div class="criterion">Parfum sucré intense (sentez toujours !)</div>
+              <div class="criterion">Calice vert, pas brun</div>
+              <div class="criterion">Ferme mais pas dure, légèrement souple</div>
+            </div>
+            <div class="gcard-section">Saison optimale</div>
+            <div class="gcard-saison-bar">
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot"></div>
+              <div class="month-dot on"></div><div class="month-dot on"></div><div class="month-dot on"></div>
+              <div class="month-dot on"></div><div class="month-dot"></div><div class="month-dot"></div>
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot"></div>
+            </div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">1–2 jours maximum à température ambiante. Lavez AVANT d'enlever le calice.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>3–6€/kg</strong></div>
+            <span class="gcard-freshness gf-top">Pleine saison</span>
+          </div>
+        </div>
+
+        <!-- Camembert -->
+        <div class="gcard" data-cat="fromage">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🧀</div>
+            <div>
+              <div class="gcard-title">Camembert de Normandie</div>
+              <div class="gcard-latin">AOP · Lait cru</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-fromage">Fromage à croûte fleurie</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Croûte blanche veloutée, légèrement rosée</div>
+              <div class="criterion">Légèrement souple au centre (pas dur, pas liquide)</div>
+              <div class="criterion">Odeur lactée, champignons, légèrement ammoniaquée</div>
+              <div class="criterion">DLC : minimum 7–10 jours restants</div>
+            </div>
+            <div class="gcard-section">Affinage optimal</div>
+            <div class="gcard-text">Un camembert trop jeune est blanc et dur. Trop affiné : il coule et sent fort l'ammoniaque. L'idéal : croûte dorée et cœur légèrement crémeux.</div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">Dans sa boîte d'origine, dans le bac à fromages. Sortez-le 30 min avant dégustation.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>4–7€ la pièce</strong></div>
+            <span class="gcard-freshness gf-bon">Toute l'année</span>
+          </div>
+        </div>
+
+        <!-- Comté -->
+        <div class="gcard" data-cat="fromage">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🧀</div>
+            <div>
+              <div class="gcard-title">Comté</div>
+              <div class="gcard-latin">AOP · Franche-Comté</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-fromage">Fromage à pâte pressée cuite</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Pâte jaune ivoire, lisse, sans craquelures</div>
+              <div class="criterion">Talon brun doré, régulier</div>
+              <div class="criterion">Odeur noisette, lait cuit (si bien affiné)</div>
+              <div class="criterion">Plus long affinage = plus intense (préférez 12–18 mois)</div>
+            </div>
+            <div class="gcard-section">Les affinages</div>
+            <div class="gcard-text">6 mois : doux, laiteux, idéal pour fondre. 12 mois : fruité et équilibré. 18–24 mois : cristaux de tyrosine, saveur complexe, intense.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>18–28€/kg</strong></div>
+            <span class="gcard-freshness gf-bon">Toute l'année</span>
+          </div>
+        </div>
+
+        <!-- Poulet -->
+        <div class="gcard" data-cat="viande">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🍗</div>
+            <div>
+              <div class="gcard-title">Poulet fermier</div>
+              <div class="gcard-latin">Gallus gallus domesticus</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-viande">Volaille</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Chair rose pâle à jaune selon alimentation</div>
+              <div class="criterion">Peau non gluante, légèrement humide</div>
+              <div class="criterion">Label Rouge ou Bio pour la qualité</div>
+              <div class="criterion">Odeur fraîche et neutre, aucune acidité</div>
+            </div>
+            <div class="gcard-section">Labels à privilégier</div>
+            <div class="gcard-text">Label Rouge = minimum 81 jours d'élevage (contre 39 pour le standard). Poulet Bio = alimentation bio + accès extérieur. Évitez sans label en grande surface.</div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">2 jours au réfrigérateur (partie la plus froide). Congelez dans les 24h si pas consommé.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>8–15€/kg</strong></div>
+            <span class="gcard-freshness gf-bon">Toute l'année</span>
+          </div>
+        </div>
+
+        <!-- Saumon -->
+        <div class="gcard" data-cat="poisson">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🐟</div>
+            <div>
+              <div class="gcard-title">Saumon frais</div>
+              <div class="gcard-latin">Salmo salar</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-poisson">Poisson gras</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Chair ferme, rebondit au toucher</div>
+              <div class="criterion">Odeur de mer, pas de poisson fort</div>
+              <div class="criterion">Peau brillante, écailles bien adhérentes</div>
+              <div class="criterion">Œil clair, non terne (pour le poisson entier)</div>
+            </div>
+            <div class="gcard-section">Label ASC ou MSC</div>
+            <div class="gcard-text">Privilégiez le label MSC (pêche durable) ou ASC (élevage responsable). Le saumon sauvage est plus goûteux mais plus rare et plus cher.</div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">24h au réfrigérateur (partie la plus froide). Consommez le jour d'achat idéalement.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>12–22€/kg</strong></div>
+            <span class="gcard-freshness gf-bon">Toute l'année</span>
+          </div>
+        </div>
+
+        <!-- Sardine -->
+        <div class="gcard" data-cat="poisson">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🐠</div>
+            <div>
+              <div class="gcard-title">Sardine fraîche</div>
+              <div class="gcard-latin">Sardina pilchardus</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-poisson">Poisson gras</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Œil bombé et translucide (signe de fraîcheur)</div>
+              <div class="criterion">Peau argentée et brillante</div>
+              <div class="criterion">Odeur iodée, pas fort</div>
+              <div class="criterion">Chair ferme, pas de ventre gonflé</div>
+            </div>
+            <div class="gcard-section">Saison optimale</div>
+            <div class="gcard-saison-bar">
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot"></div>
+              <div class="month-dot"></div><div class="month-dot on"></div><div class="month-dot on"></div>
+              <div class="month-dot on"></div><div class="month-dot on"></div><div class="month-dot on"></div>
+              <div class="month-dot"></div><div class="month-dot"></div><div class="month-dot"></div>
+            </div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">À consommer le jour même. Posez sur de la glace au réfrigérateur si achetées le matin.</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>3–6€/kg</strong></div>
+            <span class="gcard-freshness gf-top">Pleine saison</span>
+          </div>
+        </div>
+
+        <!-- Agneau -->
+        <div class="gcard" data-cat="viande">
+          <div class="gcard-header">
+            <div class="gcard-emoji">🥩</div>
+            <div>
+              <div class="gcard-title">Agneau</div>
+              <div class="gcard-latin">Ovis aries</div>
+              <div class="gcard-tags"><span class="gcard-tag gt-viande">Viande rouge</span></div>
+            </div>
+          </div>
+          <div class="gcard-body">
+            <div class="gcard-section">Comment choisir</div>
+            <div class="gcard-criteria">
+              <div class="criterion">Chair rose pâle (agneau jeune) à rouge rosé</div>
+              <div class="criterion">Gras blanc cassé, ferme</div>
+              <div class="criterion">Odeur douce, lactée, pas forte</div>
+              <div class="criterion">Chair brillante, pas terne ni brune</div>
+            </div>
+            <div class="gcard-section">Saison</div>
+            <div class="gcard-text">L'agneau de printemps (mars–mai) est le plus tendre. L'agneau pré-salé (Normandie) est disponible à l'automne et a une saveur incomparable.</div>
+            <div class="gcard-section">Conservation</div>
+            <div class="gcard-text">2–3 jours au réfrigérateur dans son emballage. La congélation préserve bien le goût (3 mois).</div>
+          </div>
+          <div class="gcard-footer">
+            <div class="gcard-price">Prix moyen : <strong>15–30€/kg</strong></div>
+            <span class="gcard-freshness gf-bon">Printemps · Automne</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ════════════════════════════════
+     PAGE 4 — À PROPOS
+════════════════════════════════ -->
+<div class="page" id="pg-about">
+
+  <div class="about-hero">
+    <div>
+      <div class="about-hero-tag">🌿 Notre histoire</div>
+      <h1>Manger local et de saison,<br><em>rendu facile</em> pour tous.</h1>
+      <p>Marché Facile est né d'un constat simple : la plupart des gens veulent bien manger mais ne savent pas toujours quoi choisir au supermarché. Nous avons créé l'outil qui manquait.</p>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="mission-grid">
+        <div class="mission-text">
+          <div class="label">Notre mission</div>
+          <h2>Remettre le <em>bon sens alimentaire</em> dans les mains de tous.</h2>
+          <p>Pendant des générations, les familles savaient naturellement quoi acheter à quelle saison, comment reconnaître un bon produit, ce qui valait le coup. Ce savoir s'est perdu avec la grande distribution et la mondialisation des rayons.</p>
+          <p>Marché Facile remet ce savoir à portée de main — littéralement. En quelques secondes, au rayon du supermarché, vous avez accès aux mêmes critères qu'un bon cuisinier ou qu'une grand-mère avisée.</p>
+          <p>Pas de prise de tête. Pas d'abonnement. Juste de l'information utile, claire et actualisée chaque semaine.</p>
+          <button class="btn btn-green" onclick="goTo('guide')">Explorer le guide →</button>
+        </div>
+        <div class="mission-visual">
+          <div class="mv-item">
+            <div class="mv-icon">🌍</div>
+            <div>
+              <div class="mv-title">Produits locaux prioritaires</div>
+              <div class="mv-desc">Nous mettons en avant les produits français et d'origine identifiée, avec des variétés locales souvent meilleures que les importations.</div>
+            </div>
+          </div>
+          <div class="mv-item">
+            <div class="mv-icon">📅</div>
+            <div>
+              <div class="mv-title">Mise à jour hebdomadaire</div>
+              <div class="mv-desc">Notre équipe met à jour les données chaque semaine selon la saisonnalité réelle observée sur les marchés de producteurs.</div>
+            </div>
+          </div>
+          <div class="mv-item">
+            <div class="mv-icon">🔬</div>
+            <div>
+              <div class="mv-title">Conseils vérifiés</div>
+              <div class="mv-desc">Chaque fiche produit est rédigée et validée par des professionnels : fromagers, maraîchers, poissonniers et bouchers.</div>
+            </div>
+          </div>
+          <div class="mv-item">
+            <div class="mv-icon">🆓</div>
+            <div>
+              <div class="mv-title">Toujours gratuit</div>
+              <div class="mv-desc">Marché Facile sera toujours gratuit. Notre conviction : l'accès à l'information alimentaire ne devrait pas coûter quoi que ce soit.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="stats-inner">
+      <div><div class="stat-num">85K</div><div class="stat-label">Téléchargements</div></div>
+      <div><div class="stat-num">420+</div><div class="stat-label">Produits référencés</div></div>
+      <div><div class="stat-num">4.8★</div><div class="stat-label">Note moyenne</div></div>
+      <div><div class="stat-num">100%</div><div class="stat-label">Gratuit</div></div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label">Ce en quoi on croit</div>
+          <h2 class="sec-h">Nos valeurs</h2>
+        </div>
+      </div>
+      <div class="values-grid">
+        <div class="vcard">
+          <span class="vcard-icon">🌱</span>
+          <div class="vcard-title">Saisonnalité vraie</div>
+          <p class="vcard-desc">Pas de compromis sur la saisonnalité. Un produit hors saison en France est importé, souvent cueilli avant maturité, transporté des milliers de kilomètres. Ce n'est pas ce que nous recommandons.</p>
+        </div>
+        <div class="vcard">
+          <span class="vcard-icon">🎯</span>
+          <div class="vcard-title">Simplicité radicale</div>
+          <p class="vcard-desc">Pas de recettes compliquées, pas de contenu pour remplir. Chaque information dans l'application doit être utile dans les 30 secondes au rayon. Si ce n'est pas le cas, on l'enlève.</p>
+        </div>
+        <div class="vcard">
+          <span class="vcard-icon">🤝</span>
+          <div class="vcard-title">Transparence totale</div>
+          <p class="vcard-desc">Nous ne sommes pas payés par des marques ou des supermarchés. Nos conseils sont indépendants. Nous vous dirons si un produit n'est pas au meilleur, même si c'est ce qu'on vous propose en promotion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="label">Qui nous sommes</div>
+          <h2 class="sec-h">L'équipe</h2>
+          <p class="sec-p">Une petite équipe passionnée d'alimentation, de cuisine et de technologie, convaincue que manger bien est à la portée de tous.</p>
+        </div>
+      </div>
+      <div class="team-grid">
+        <div class="tpcard">
+          <div class="tpcard-avatar">👩‍🍳</div>
+          <div class="tpcard-name">Claire Fontaine</div>
+          <div class="tpcard-role">Fondatrice & Directrice produit</div>
+        </div>
+        <div class="tpcard">
+          <div class="tpcard-avatar">👨‍💻</div>
+          <div class="tpcard-name">Marc Aubin</div>
+          <div class="tpcard-role">Développeur principal</div>
+        </div>
+        <div class="tpcard">
+          <div class="tpcard-avatar">👩‍🌾</div>
+          <div class="tpcard-name">Léa Rousseau</div>
+          <div class="tpcard-role">Experte produits & saisonnalité</div>
+        </div>
+        <div class="tpcard">
+          <div class="tpcard-avatar">👨‍🔬</div>
+          <div class="tpcard-name">Antoine Mercier</div>
+          <div class="tpcard-role">Contenu & Rédaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sec sec-alt">
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:2rem;">
+        <div>
+          <div class="label">Questions fréquentes</div>
+          <h2 class="sec-h">FAQ</h2>
+        </div>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">L'application est-elle vraiment gratuite ? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Oui, totalement et définitivement. Marché Facile ne propose pas d'abonnement, pas de version premium, pas de publicité. L'application est financée par des dons et par la bonne volonté de ses créateurs.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Comment les données sont-elles mises à jour ? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Notre équipe éditoriale met à jour les fiches produits chaque semaine, en s'appuyant sur les observations réelles des marchés de producteurs en France. Les calendriers saisonniers sont ajustés chaque mois.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">L'application couvre-t-elle ma région ? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Actuellement, l'application est centrée sur la France métropolitaine. Les saisons et les produits sont adaptés au contexte français. Nous travaillons à une version internationale pour 2027.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Puis-je contribuer des informations ? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Absolument ! Nous avons une section "Signaler" dans l'application pour nous avertir si une information vous semble incorrecte ou incomplète. Les contributions de professionnels (fromagers, maraîchers) sont particulièrement bienvenues.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Sur quels appareils fonctionne l'application ? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Marché Facile est disponible sur iOS (iPhone, iPad) et Android (version 8 minimum). Elle fonctionne hors ligne pour les fiches produits déjà consultées, ce qui est pratique dans les zones sans réseau.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <div class="cta-band">
+    <div class="wrap" style="text-align:center;">
+      <h2>Téléchargez Marché Facile</h2>
+      <p>Gratuit, sans pub, sans abonnement. Disponible maintenant sur iOS et Android.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-white">🍎 App Store</button>
+        <button class="btn btn-white">▶ Google Play</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <div class="footer-logo-icon">🛒</div>
+          Marché Facile
+        </div>
+        <p class="footer-desc">L'application qui vous guide pour choisir les meilleurs fruits, légumes, fromages et poissons au supermarché. Gratuit, sans pub.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Application</div>
+        <div class="footer-links">
+          <a onclick="goTo('home')">Accueil</a>
+          <a onclick="goTo('guide')">Guide produits</a>
+          <a onclick="goTo('saisons')">Calendrier</a>
+          <a>Nouveautés</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">À propos</div>
+        <div class="footer-links">
+          <a onclick="goTo('about')">Notre mission</a>
+          <a onclick="goTo('about')">L'équipe</a>
+          <a onclick="goTo('about')">FAQ</a>
+          <a>Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Légal</div>
+        <div class="footer-links">
+          <a>Mentions légales</a>
+          <a>Confidentialité</a>
+          <a>CGU</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Marché Facile — Application 100% gratuite</div>
+      <div class="footer-stores">
+        <div class="fstore">🍎 App Store</div>
+        <div class="fstore">▶ Google Play</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<footer class="ab-footer">
+  <div class="ab-footer__logo">
+    <span class="ab-footer__logo-ab">AB</span><span class="ab-footer__logo-dev">.dev</span>
+  </div>
+  <p class="ab-footer__sub">Armel BEDJRA — Developer</p>
+  <a class="ab-footer__whatsapp" href="https://wa.me/22897943844" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    +228 97 94 38 44
+  </a>
+  <p class="ab-footer__copy">© 2026 · All rights reserved</p>
+</footer>
+
+<script>
+/* ═══ NAVIGATION ═══ */
+const pages={home:'pg-home',saisons:'pg-saisons',guide:'pg-guide',about:'pg-about'};
+const navBtns={home:'nb-home',saisons:'nb-saisons',guide:'nb-guide',about:'nb-about'};
+
+function goTo(p){
+  Object.values(pages).forEach(id=>document.getElementById(id).classList.remove('active'));
+  Object.values(navBtns).forEach(id=>document.getElementById(id).classList.remove('on'));
+  document.getElementById(pages[p]).classList.add('active');
+  document.getElementById(navBtns[p]).classList.add('on');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ═══ SEASON TABS ═══ */
+function setSeason(s){
+  document.querySelectorAll('.stab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.season-panel').forEach(p=>p.classList.remove('on'));
+  event.target.classList.add('on');
+  document.getElementById('sp-'+s).classList.add('on');
+}
+
+/* ═══ GUIDE FILTER ═══ */
+function filterGuide(cat,btn){
+  document.querySelectorAll('.gfilter').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.gcard').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+  });
+}
+
+/* ═══ FAQ TOGGLE ═══ */
+function toggleFaq(el){
+  const item=el.parentElement;
+  item.classList.toggle('open');
+}
+</script>
+</body>
+</html>
