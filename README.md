@@ -1,8 +1,11 @@
-# CuisineAZ
+# Marché Facile
 
-CuisineAZ est une interface web moderne dédiée à la découverte et à la présentation de recettes culinaires.  
-Le projet met en avant un design responsive, une navigation fluide et une expérience utilisateur agréable, permettant aux visiteurs d’explorer différentes catégories de plats et inspirations gastronomiques.
 
-Cette réalisation a été développée dans le but de mettre en pratique la création d’interfaces web modernes, l’intégration d’éléments visuels attractifs ainsi que l’optimisation de l’affichage sur différents appareils.
+Marché Facile est une application web moderne conçue pour aider les utilisateurs à mieux choisir leurs produits alimentaires au supermarché et au marché.  
+L’application met en avant les fruits et légumes de saison, les fromages, viandes et poissons de qualité, tout en proposant des conseils pratiques pour consommer plus frais et plus local.
 
-![Aperçu du projet](cusine.png)"# Factureplusplus" 
+Le projet offre une interface responsive, intuitive et agréable, permettant aux utilisateurs de rechercher rapidement des produits, consulter des guides saisonniers et découvrir des recommandations utiles pour une alimentation plus saine et responsable.
+
+Cette réalisation a été développée dans le but de pratiquer la création d’interfaces web modernes, l’intégration d’un design attractif ainsi que l’optimisation de l’expérience utilisateur sur tous les appareils.
+
+![Aperçu du projet](facture.png)
